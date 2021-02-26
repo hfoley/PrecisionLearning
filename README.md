@@ -1,10 +1,10 @@
 # PrecisionLearning
 
-This solution is to help build the components of a big data architecture in Synapse Analytics to help build an example scenario to help tackle a precision learning use case.  There is an accompanying blog post for this solution at www.hopefoley.com/precisionlearning.  This solution mimics data from an e-textbook and learning system called VitalSource.  
+This solution is to help build the components of a big data architecture in Synapse Analytics.  This use case is one that tackles one data source in a precision learning.  There is an accompanying blog post for my interpretation of precision learning at www.hopefoley.com/precisionlearning.  This solution mimics data from an e-textbook and learning system called VitalSource (https://get.vitalsource.com/).  The sample data file is based on the example at https://developer.vitalsource.com/hc/en-us/articles/115015721128.  
 	
 The architecture of the solution diagrammed below.  
 
-![alt text](https://github.com/hfoley/EDU/blob/master/images/Hope%20Synapse%20Load%20V2%20version.jpg?raw=true)
+![alt text](https://github.com/hfoley/EDU/blob/master/images/Hope%20Precision%20Learning.jpg?raw=true)
 
 ## Asset List - These items will be created in your Azure subscription 
 	1. Azure Resource Group
