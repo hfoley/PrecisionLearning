@@ -1,6 +1,6 @@
 # PrecisionLearning
 
-This solution is to help build the components of a big data architecture in Synapse Analytics.  This use case is one that tackles one data source in a precision learning.  There is an accompanying blog post for my interpretation of precision learning at www.hopefoley.com/precisionlearning.  This solution mimics data from an e-textbook and learning system called VitalSource (https://get.vitalsource.com/).  The sample data file is based on the example at https://developer.vitalsource.com/hc/en-us/articles/115015721128.  
+This solution is to help build the components of a big data architecture in Synapse Analytics.  This use case is one that tackles one data source in a precision learning.  There is an accompanying blog post for my interpretation of precision learning at www.hopefoley.com/precisionlearning.  This solution mimics data from an e-textbook and learning system called VitalSource (https://get.vitalsource.com/).  The sample data file is based on the example at https://developer.vitalsource.com/hc/en-us/articles/115015721128.  We'll mimic landing the gzipped json files from this system
 	
 The architecture of the solution diagrammed below.  
 
@@ -8,15 +8,14 @@ The architecture of the solution diagrammed below.
 
 ## Asset List - These items will be created in your Azure subscription 
 	1. Azure Resource Group
-	2. Azure SQL Database - metadata tables location 
-	3. Azure Data Lake Gen 2 - location to land extracted parquet files 
-	4. Azure Data Factory - pipelines to extract data 
-	5. Azure Synapse Workspace - new environment for anayltics 
-	6. Azure Synapse SQL Pool - destination to load parquet extracted files 
-	7. Azure SQL DB metadata tables to drive ADF pipelines
-	8. Azure Data Factory - SQL Date Based Extract pipeline - extracts data from SQL Server tables specified (example uses Azure SQL DB created or specified) 
-	9. Azure Data Factory - Synapse Incremental Load pipeline - parameter/metadata driven pipeline that does incremental load into Synapse SQL pool staging/target tables
-	10. Azure Data Factory - Synapse Truncate Load pipeline - parameter/metadata driven pipeline that does truncate/reload pattern into Synapse SQL pool only target tables
+	2. Azure Synapse Analytics workspace - all components will exist in the workspace
+	3. Azure Data Lake Gen 2 - will create one that's required for Synapse workspace but will leave alone 
+	4. Azure Data Lake Gen 2 - will create one that we will use as our data lake and will use for our raw and processed data zones 
+	5. Synapse linked service - this establishes connection for the pipeline to use to #4 above 
+	6. Synapse dataset to raw landing zong - will create dataset for the source location 
+	7. Synapse dataset to processed container - will create a dataset to land processed parquet files in to vitalsource container in #4
+	8. Synapse mapping data flow - will create a mapping dataflow we'll use to process and land data in parquet files in #4
+	9. *TBD Synapse pipeline - will do a pipeline to run after an issue is addressed in creating pipelines via PowerShell that contain a mapping dataflow
 	
 * [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains PowerShell scripts to build all the Azure components in the solution. 
 * [02 ADF Create](https://github.com/hfoley/SynapseLoadV2/tree/master/02%20ADF%20Create)   - contains powershell script and json files needed to build Azure Data Factory pipelines and other components.    
