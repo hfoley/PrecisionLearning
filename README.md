@@ -1,4 +1,4 @@
-# PrecisionLearning
+# Precision Learning - Synapse Analytics Solution Sample 
 
 This solution is to help build the components of a big data architecture in Synapse Analytics.  This use case is one that tackles one data source in a precision learning.  There is an accompanying blog post for my interpretation of precision learning at www.hopefoley.com/precisionlearning.  This solution mimics data from an e-textbook and learning system called VitalSource (https://get.vitalsource.com/).  The sample data file is based on the example at https://developer.vitalsource.com/hc/en-us/articles/115015721128.  We'll mimic landing the gzipped json files from this system
 	
@@ -26,7 +26,7 @@ The architecture of the solution diagrammed below.
 1. Need to have at least PowerShell 5.1 installed.  You can check this by running the following script. 
 	$PSVersionTable.PSVersion
 2. Install Powershell AZ package.  This solution has been tested with 4.3.0.  You can find info on installing this at https://www.powershellgallery.com/packages/Az/
-3. You may also need addtional modules as well like Az.DataFactory (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  These commands below can help you determine if you have these components. I have tested this with Az.DataFactory 1.8.2 and Az.Synapse 0.1.2.  
+3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
 
 	```powershell
 	$PSVersionTable.PSVersion
