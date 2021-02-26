@@ -27,18 +27,10 @@ The architecture of the solution diagrammed below.
 	$PSVersionTable.PSVersion
 2. Install Powershell AZ package.  This solution has been tested with 4.3.0.  You can find info on installing this at https://www.powershellgallery.com/packages/Az/
 3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
-
-	```powershell
-	$PSVersionTable.PSVersion
-
-	Get-InstalledModule -Name Az -AllVersions | Select-Object -Property Name, Version
-
-	Get-Module -Name Az.Sy* -ListAvailable
-	Get-Module -Name Az.DataF* -ListAvailable
-	```
+	
 
 ## Steps 
-Each folder contains PowerShell and/or SQL scripts you'll need to update for your environment.  Further details on the files are in the readme of each section.  
+Each folder contains PowerShell, json files to assist with pipelines/parameters, and/or SQL scripts you'll need to update for your environment.  Further details are in the readme of each section.  
 
 1. Start here to create Azure resources above >> [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources) 
 
