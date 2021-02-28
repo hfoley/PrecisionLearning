@@ -44,8 +44,8 @@ As of now (3/1/21) there's an issue creating a pipeline via PowerShell that cont
 3. Expand Activities and select and drag to canvas to run a Data flow (Move & Transform section). 
 4. Select settings for data flow - expand Data flow and choose VitalSourceDF. 
 5. After you've created and updated setting for the pipeline - hit publish to save your changes to Synapse. 
-6. You can now run the pipeline to process the raw VitalSource gzipped json file.  The pipeline will process any files beginning with the filename "Vital*" and process them into the vitalsource container. 
-7. Navigate to container and verify a parquet file was created. 
+6. We'll come back and run this pipeline after we've uploaded sample data in next section.  
 
 Up next is to upload sample data files into our newly created ADLS Gen 2 data lake.  You can view and validate what's contained in the resource group.  Navigate to sample data folder below.  
+
 * [02 Sample Data](https://github.com/hfoley/PrecisionLearning/tree/main/02%20Sample%20Data)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
