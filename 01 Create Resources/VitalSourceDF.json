@@ -1,41 +1,41 @@
 {
-    "name":  "VitalSourceDF",
-    "properties":  {
-                       "type":  "MappingDataFlow",
-                       "typeProperties":  {
-                                              "sources":  [
-                                                              {
-                                                                  "dataset":  {
-                                                                                  "referenceName":  "RawDataLakeDS",
-                                                                                  "type":  "DatasetReference"
-                                                                              },
-                                                                  "name":  "ActivityExploreSource"
-                                                              }
-                                                          ],
-                                              "sinks":  [
-                                                            {
-                                                                "dataset":  {
-                                                                                "referenceName":  "VitalSourceSinkDS",
-                                                                                "type":  "DatasetReference"
-                                                                            },
-                                                                "name":  "ParquetSink"
-                                                            }
-                                                        ],
-                                              "transformations":  [
-                                                                      {
-                                                                          "name":  "Flatten1"
-                                                                      },
-                                                                      {
-                                                                          "name":  "GrabYear"
-                                                                      },
-                                                                      {
-                                                                          "name":  "GrabMonth"
-                                                                      },
-                                                                      {
-                                                                          "name":  "GrabDay"
-                                                                      }
-                                                                  ],
-                                              "script":  "source(output(\n\t\tdata as ({@context} as string, action as string, actor as ({@context} as string, id as string, type as string), edApp as ({@context} as string, id as string, type as string), eventTime as string, extensions as (distributor as ({@context} as string, id as string, type as string)), federatedSession as (dateCreated as string, id as string, messageParameters as (TC_agreed as boolean, alternate_return_url as string, b2launch as boolean, base_url as string, book_kind as string, book_location as string, book_type as string, bookmeta_id as integer, bookmeta_vbid as long, context_id as string, context_label as string, context_title as string, course as string, custom_action as string, custom_caliper_federated_session_id as string, custom_caliper_profile_url as string, custom_error_url as string, custom_mobile_device_launch as boolean, custom_parent_context_id as string, custom_position as string, custom_resource_id as string, custom_tc_profile_url as string, custom_tool_consumer_application as string, custom_tool_consumer_course_id as string, custom_tool_consumer_instance_guid as string, custom_tool_consumer_instance_name as string, custom_tool_consumer_multi_institution_type as string, custom_tool_consumer_multi_institution_value as string, custom_tool_consumer_plugin_version as string, custom_tool_consumer_time_zone as short, custom_tool_consumer_user_id as string, custom_tool_consumer_user_mobile_lauch_setting as string, custom_tool_consumer_user_pc_launch_setting as string, custom_tool_consumer_vendor as string, custom_tool_consumer_version as string, ext_launch_id as string, ext_launch_presentation_css_url as string, ext_lms as string, first_name as string, full_name as string, is_TC as boolean, is_adopted as boolean, is_ref_only as boolean, last_name as string, launch_class as string, launch_presentation_document_target as string, launch_presentation_locale as string, launch_presentation_return_url as string, launch_return as boolean, lis_person_sourcedid as string, location as string, lti_message_type as string, lti_sequence_ident as string, lti_version as string, pay_term as string, publisher_id as short, publisher_urn as long, raw_roles as string, resolved_course as integer, resource_link_id as string, result_message as string, result_message_key as string, result_status as short, roles as string, service_path as string, sku as string, strategy as string, tactic as string, tenant_id as integer, tenant_user_access_token as string, tenant_user_id as integer, tool_consumer_instance_contact_email as string, tool_consumer_instance_description as string, tool_consumer_instance_guid as string, tool_consumer_instance_name as string, user_id as string, vbid as string), startedAtTime as string, type as string, user as (id as string, type as string)), generated as (annotated as (id as string, isPartOf as (id as string, type as string), name as string, type as string), annotator as (id as string, type as string), dateCreated as string, id as string, type as string), group as (id as string, type as string), id as string, object as string, searchTerm as string, session as ({@context} as string, id as string, type as string), target as (id as string, index as boolean, isPartOf as (id as string, type as string), name as string, type as string), type as string)[],\n\t\tdataVersion as string,\n\t\tsendTime as string,\n\t\tsensor as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: true,\n\tlimit: 10,\n\tmoveFiles: [\u0027\u0027,\u0027processed/activities\u0027],\n\trowUrlColumn: \u0027ActivityFileProcessed\u0027,\n\tdocumentForm: \u0027singleDocument\u0027,\n\twildcardPaths:[\u0027act*\u0027],\n\tpartitionBy(\u0027hash\u0027, 1)) ~\u003e ActivityExploreSource\nActivityExploreSource foldDown(unroll(data),\n\tmapColumn(\n\t\tdata,\n\t\tdataVersion,\n\t\tsendTime,\n\t\tsensor\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~\u003e Flatten1\nFlatten1 derive(PartitionYear = year(toDate(sendTime))) ~\u003e GrabYear\nGrabYear derive(PartitionMonth = month(toDate(sendTime))) ~\u003e GrabMonth\nGrabMonth derive(PartitionDay = dayOfMonth(toDate(sendTime))) ~\u003e GrabDay\nGrabDay sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: \u0027parquet\u0027,\n\ttruncate: true,\n\tpartitionBy(\u0027key\u0027,\n\t\t0,\n\t\tPartitionYear,\n\t\tPartitionMonth,\n\t\tPartitionDay\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~\u003e ParquetSink"
-                                          }
-                   }
+    "name": "VitalSourceDF",
+    "properties": {
+        "type": "MappingDataFlow",
+        "typeProperties": {
+            "sources": [
+                {
+                    "dataset": {
+                        "referenceName": "RawDataLakeDS",
+                        "type": "DatasetReference"
+                    },
+                    "name": "VitalSourceExploreSource"
+                }
+            ],
+            "sinks": [
+                {
+                    "dataset": {
+                        "referenceName": "VitalSourceSinkDS",
+                        "type": "DatasetReference"
+                    },
+                    "name": "ParquetSink"
+                }
+            ],
+            "transformations": [
+                {
+                    "name": "Flatten1"
+                },
+                {
+                    "name": "GrabYear"
+                },
+                {
+                    "name": "GrabMonth"
+                },
+                {
+                    "name": "GrabDay"
+                }
+            ],
+            "script": "source(output(\n\t\tdata as ({@context} as string, action as string, actor as ({@context} as string, id as string, type as string), edApp as ({@context} as string, id as string, type as string), eventTime as string, extensions as (distributor as ({@context} as string, id as string, type as string)), federatedSession as (dateCreated as string, id as string, messageParameters as (TC_agreed as boolean, alternate_return_url as string, b2launch as boolean, base_url as string, book_kind as string, book_location as string, book_type as string, bookmeta_id as integer, bookmeta_vbid as long, context_id as string, context_label as string, context_title as string, course as string, custom_action as string, custom_caliper_federated_session_id as string, custom_caliper_profile_url as string, custom_error_url as string, custom_mobile_device_launch as boolean, custom_parent_context_id as string, custom_position as string, custom_resource_id as string, custom_tc_profile_url as string, custom_tool_consumer_application as string, custom_tool_consumer_course_id as string, custom_tool_consumer_instance_guid as string, custom_tool_consumer_instance_name as string, custom_tool_consumer_multi_institution_type as string, custom_tool_consumer_multi_institution_value as string, custom_tool_consumer_plugin_version as string, custom_tool_consumer_time_zone as short, custom_tool_consumer_user_id as string, custom_tool_consumer_user_mobile_lauch_setting as string, custom_tool_consumer_user_pc_launch_setting as string, custom_tool_consumer_vendor as string, custom_tool_consumer_version as string, ext_launch_id as string, ext_launch_presentation_css_url as string, ext_lms as string, first_name as string, full_name as string, is_TC as boolean, is_adopted as boolean, is_ref_only as boolean, last_name as string, launch_class as string, launch_presentation_document_target as string, launch_presentation_locale as string, launch_presentation_return_url as string, launch_return as boolean, lis_person_sourcedid as string, location as string, lti_message_type as string, lti_sequence_ident as string, lti_version as string, pay_term as string, publisher_id as short, publisher_urn as long, raw_roles as string, resolved_course as integer, resource_link_id as string, result_message as string, result_message_key as string, result_status as short, roles as string, service_path as string, sku as string, strategy as string, tactic as string, tenant_id as integer, tenant_user_access_token as string, tenant_user_id as integer, tool_consumer_instance_contact_email as string, tool_consumer_instance_description as string, tool_consumer_instance_guid as string, tool_consumer_instance_name as string, user_id as string, vbid as string), startedAtTime as string, type as string, user as (id as string, type as string)), generated as (annotated as (id as string, isPartOf as (id as string, type as string), name as string, type as string), annotator as (id as string, type as string), dateCreated as string, id as string, type as string), group as (id as string, type as string), id as string, object as string, searchTerm as string, session as ({@context} as string, id as string, type as string), target as (id as string, index as boolean, isPartOf as (id as string, type as string), name as string, type as string), type as string)[],\n\t\tdataVersion as string,\n\t\tsendTime as string,\n\t\tsensor as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: true,\n\tmoveFiles: ['','processed/vitalsource'],\n\trowUrlColumn: 'VitalSrcFileProcessed',\n\tdocumentForm: 'singleDocument',\n\twildcardPaths:['Vital*'],\n\tpartitionBy('hash', 1)) ~> VitalSourceExploreSource\nVitalSourceExploreSource foldDown(unroll(data),\n\tmapColumn(\n\t\t{@context} = data.{@context},\n\t\taction = data.action,\n\t\tactor = data.actor,\n\t\tedApp = data.edApp,\n\t\teventTime = data.eventTime,\n\t\textensions = data.extensions,\n\t\tfederatedSession = data.federatedSession,\n\t\tgenerated = data.generated,\n\t\tgroup = data.group,\n\t\tid = data.id,\n\t\tobject = data.object,\n\t\tsearchTerm = data.searchTerm,\n\t\tsession = data.session,\n\t\ttarget = data.target,\n\t\ttype = data.type,\n\t\tdataVersion,\n\t\tsendTime,\n\t\tsensor,\n\t\tVitalSrcFileProcessed\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> Flatten1\nFlatten1 derive(PartitionYear = year(toDate(sendTime))) ~> GrabYear\nGrabYear derive(PartitionMonth = month(toDate(sendTime))) ~> GrabMonth\nGrabMonth derive(PartitionDay = dayOfMonth(toDate(sendTime))) ~> GrabDay\nGrabDay sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'parquet',\n\ttruncate: true,\n\tpartitionBy('key',\n\t\t0,\n\t\tPartitionYear,\n\t\tPartitionMonth,\n\t\tPartitionDay\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> ParquetSink"
+        }
+    }
 }
