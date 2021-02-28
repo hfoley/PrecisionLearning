@@ -9,6 +9,7 @@ In this section we'll upload the sample VitalSource files to raw container locat
 
 1. Navigate to Data pane (left database icon). Selected Linked in left side navigation.  You will see 2 Azure Data Lake Storage Gen2 items listed.  The first one is one that is required for Synapse workspace.  I try to leave that account alone.  The one we'll use is one that ends in "lakeLS".  If you expand it you'll see 2 containers, raw and vitalsource. 
 2. Select the raw container.  Here is where we'll load our sample data.  Upload the VitalSourceCaliperEvents04252017.json.gz file into raw. 
+3. Navigate back to the pipeline we created and hit Debug (play button).  
 
 
 Up next is to create external table, view, and Power BI report pointing to the view.  Navigate to Precision Learning - 03 Work with Parquet Data folder below.  
