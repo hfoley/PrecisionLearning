@@ -36,3 +36,13 @@ The files in this location are to help build the resources we'll use in your Azu
 5. You should see your pending endpoint.  Select it and click Approve.  You can add a description.  
 6. Back in Synapse Studio - you will see your endpoint approved but will take a few minutes (around 3-5 minutes in my experience). 
 7. Once you see approved in Synapse you can test the linked service connection.  Select Linked Services (still in manage pane).  In order to do so you'll need to enable a session with Azure IR.  This does start some compute resources (more info at XX).  After the IR is running you can hit Test connection on the 
+
+## Create pipeline & run 
+As of now (3/1/21) there's an issue creating a pipeline via PowerShell that contains a mapping data flow.  We'll create this manually for now and run the pipeline to process our raw files into parquet.  
+1. Open the Synapse workspace within Azure.  You can then click the Open Synapse Studio or workspace url link.  Open the manage pane (tool box on left side).  
+2. We need to create a private endpoint to allow connectivity before we can interact with the ADLS storage.  As of now (2/25) it seems unable to be done in Powershell so we'll do manually.  Select Managed private endpoints.  Select new.  
+3. Select Azure Data Lake Storage Gen 2 option.  Specify name appropriate for the endpoint.  This essentially just allows Synapse to communicate with your storage.  It will be name your prefix+"lake".  Select the appropriate subscription and storage account.  Hit create.  In Synapse you'll see a "pending state".  
+4. In the Azure portal - navigate to your storage account.  Select Networking withing Settings of your storage account (left side).  Select on right side "Private endpoint connections".  
+5. You should see your pending endpoint.  Select it and click Approve.  You can add a description.  
+6. Back in Synapse Studio - you will see your endpoint approved but will take a few minutes (around 3-5 minutes in my experience). 
+7. Once you see approved in Synapse you can test the linked service connection.  Select Linked Services (still in manage pane).  In order to do so you'll need to enable a session with Azure IR.  This does start some compute resources (more info at XX).  After the IR is running you can hit Test connection on the 
