@@ -16,11 +16,12 @@ The files in this location are to help build the resources we'll use in your Azu
 	
 
 ## Steps 
-1. Prereq check - Open your PoSH IDE and open the file 00 - PreReqCheck.ps1.  This file you commands to check for some of the pre-reqs needed to run the rest of the scripts.  
-2. Update the paramfile.json with the values you want to use for the rest of the scripts.  Storage is finicky naming.  Keep storage params lowercase and your prefix 3-5 characters. 
-3. Run the 01 - CreateResources.ps1 file and supply the param file location.  You'll be prompted for your login credentials to Azure.  You'll also be prompted for a username and password.  This will be your Synapse admin login.  Below is some sample syntax.  Keep all your script and json files in the same location.  
-  & "C:\PSScripts\01 - CreateResources.ps1" -filepath "C:\PSScripts\paramfile.json"
-4. Run the 02 - GrantStorageRights.ps1.  You'll again be prompted for login to Azure.  This script will assign the rights needed to the ADLS storage account.  It will grant your account (or the admin user provided in the paramfile) will be granted Storage Blob Data Contributor role on the ADLS account.  Below is a sample syntax. 
-  & "C:\PSScripts\02 - GrantStorageRights.ps1" -filepath "C:\PSScripts\paramfile.json"
-5. Run the 03 - Create Pipeline Parts.ps1.  You'll again be prompted for login to Azure.  This script will create the pipeline related components.  This will update the json files based on the values again in the paramfile.  Below is a sample syntax. 
-  & "C:\PSScripts\03 - Create Pipeline Parts.ps1" -filepath "C:\PSScripts\paramfile.json"![image](https://user-images.githubusercontent.com/30324719/109405342-a699df00-793d-11eb-8e4a-37e1ae3b718f.png)
+	1. Prereq check - Open your PoSH IDE and open the file 00 - PreReqCheck.ps1.  This file you commands to check for some of the pre-reqs needed to run the rest of the scripts.  
+	2. Update the paramfile.json with the values you want to use for the rest of the scripts.  Storage is finicky naming.  Keep storage params lowercase and your prefix 3-5 characters. 
+	3. Run the 01 - CreateResources.ps1 file and supply the param file location.  You'll be prompted for your login credentials to Azure.  You'll also be prompted for a username and password.  This will be your Synapse admin login.  Below is some sample syntax.  Keep all your script and json files in the same location.  
+		a. & "C:\PSScripts\01 - CreateResources.ps1" -filepath "C:\PSScripts\paramfile.json"
+	4. Run the 02 - GrantStorageRights.ps1.  You'll again be prompted for login to Azure.  This script will assign the rights needed to the ADLS storage account.  It will grant your account (or the admin user provided in the paramfile) will be granted Storage Blob Data Contributor role on the ADLS account.  Below is a sample syntax. 
+		a. & "C:\PSScripts\02 - GrantStorageRights.ps1" -filepath "C:\PSScripts\paramfile.json"
+	5. Run the 03 - Create Pipeline Parts.ps1.  You'll again be prompted for login to Azure.  This script will create the pipeline related components.  This will update the json files based on the values again in the paramfile.  Below is a sample syntax. 
+& "C:\PSScripts\03 - Create Pipeline Parts.ps1" -filepath "C:\PSScripts\paramfile.json"![image](https://user-images.githubusercontent.com/30324719/109405498-1eb4d480-793f-11eb-93f3-deb5794909b4.png)
+
