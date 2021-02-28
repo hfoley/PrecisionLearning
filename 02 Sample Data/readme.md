@@ -7,17 +7,13 @@ The files in this location are the gzipped json files mimicked from VitalSource 
 ## Upload data and run pipeline
 In this section we'll upload the sample VitalSource files to raw container location.  We'll then run the pipeline to process the raw files to parquet.  
 
-1. Open the Synapse workspace within Azure.  You can then click the Open Synapse Studio or workspace url link.  Open the manage pane (tool box on left side).  
-2. Navigate to Integrate pane.  Select the + and select pipeline.  Give it appropriate name. Tip: can click on properties in top right to move it out of the way.  
-3. Expand Activities and select and drag to canvas to run a Data flow (Move & Transform section). 
-4. Select settings for data flow - expand Data flow and choose VitalSourceDF. 
-5. After you've created and updated setting for the pipeline - hit publish to save your changes to Synapse. 
-6. We'll come back and run this pipeline after we've uploaded sample data in next section.  
+1. Navigate to Data pane (left database icon). Selected Linked in left side navigation.  You will see 2 Azure Data Lake Storage Gen2 items listed.  The first one is one that is required for Synapse workspace.  I try to leave that account alone.  The one we'll use is one that ends in "lakeLS".  If you expand it you'll see 2 containers, raw and vitalsource. 
+2. Select the raw container.  Here is where we'll load our sample data.  Upload the VitalSourceCaliperEvents04252017.json.gz file into raw. 
 
-Up next is to upload sample data files into our newly created ADLS Gen 2 data lake.  You can view and validate what's contained in the resource group.  Navigate to sample data folder below.  
 
-* [02 Sample Data](https://github.com/hfoley/PrecisionLearning/tree/main/02%20Sample%20Data)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
+Up next is to create external table, view, and Power BI report pointing to the view.  Navigate to Precision Learning - 03 Work with Parquet Data folder below.  
 
+* [Precision Learning - 03 Work with Parquet Data](https://github.com/hfoley/PrecisionLearning/tree/main/03%20Work%20With%20Parquet%20Data)   - contains the sample SQL Scripts and Power BI template.  
 
 
 	
