@@ -11,6 +11,7 @@ In this section we'll upload the sample VitalSource files to raw container locat
 2. Select the raw container.  Here is where we'll load our sample data.  Upload the VitalSourceCaliperEvents04252017.json.gz file into raw. 
 3. Navigate back to the pipeline we created and hit Debug (play button).  
 4. After it's successfully run you'll see the parquet file in the vitalsource container.  You'll also see that the raw container now has a subfolder called processed.  Within that processed folder is a subfolder called vitalsource.  The file(s) process have been moved to this location after the parquet file is created.  This allows for a mild form of understanding what files have been processed.  It allows the raw container to be an unprocessed loading area.  
+5. Navigate in storage to the parquet landed in ADLS.  You'll see under vitalsource container there's a folder structure.  This folder structure is based on the sendTime column within the raw data.  This sendTime column essentially becomes our folder structure/partitioning for this data within the data lake.  
 
 
 Up next is to create external table, view, and Power BI report pointing to the view.  Navigate to Precision Learning - 03 Work with Parquet Data folder below.  
