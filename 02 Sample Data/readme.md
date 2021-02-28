@@ -13,6 +13,10 @@ In this section we'll upload the sample VitalSource files to raw container locat
 4. After it's successfully run you'll see the parquet file in the vitalsource container.  You'll also see that the raw container now has a subfolder called processed.  Within that processed folder is a subfolder called vitalsource.  The file(s) process have been moved to this location after the parquet file is created.  This allows us to know what files have been processed and the raw data is still intact for later use.   
 5. Navigate in storage to the parquet landed in ADLS.  You'll see under vitalsource container there's a folder structure.  This folder structure is based on the sendTime column within the raw data.  This sendTime column essentially becomes our folder structure/partitioning for this data within the data lake.  
 
+![alt text](https://github.com/hfoley/EDU/blob/master/images/ProcessedRaw.jpg?raw=true)
+
+![alt text](https://github.com/hfoley/EDU/blob/master/images/ParquetData.jpg?raw=true)
+
 
 Up next is to create external table, view, and Power BI report pointing to the view.  Navigate to Precision Learning - 03 Work with Parquet Data folder below.  
 
