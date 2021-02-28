@@ -12,7 +12,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'vitalsource_hlulake_dfs_core_windows_net') 
 	CREATE EXTERNAL DATA SOURCE [vitalsource_hlulake_dfs_core_windows_net] 
 	WITH (
-		LOCATION   = 'https://hlulake.dfs.core.windows.net/vitalsource', 
+		LOCATION   = 'https://<***replace***>.dfs.core.windows.net/vitalsource', 
 	)
 Go
 
