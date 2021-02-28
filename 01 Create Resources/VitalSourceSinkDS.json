@@ -1,0 +1,24 @@
+{
+    "name":  "VitalSourceSinkDS",
+    "properties":  {
+                       "linkedServiceName":  {
+                                                 "referenceName":  "pltstlakeLS",
+                                                 "type":  "LinkedServiceReference"
+                                             },
+                       "annotations":  [
+
+                                       ],
+                       "type":  "Parquet",
+                       "typeProperties":  {
+                                              "location":  {
+                                                               "type":  "AzureBlobFSLocation",
+                                                               "fileSystem":  "vitalsource"
+                                                           },
+                                              "compressionCodec":  "snappy"
+                                          },
+                       "schema":  [
+
+                                  ]
+                   },
+    "type":  "Microsoft.Synapse/workspaces/datasets"
+}

@@ -1,0 +1,17 @@
+{
+    "name":  "hpltstlake",
+    "type":  "Microsoft.Synapse/workspaces/linkedservices",
+    "properties":  {
+                       "annotations":  [
+
+                                       ],
+                       "type":  "AzureBlobFS",
+                       "typeProperties":  {
+                                              "url":  "https://hpltstlake.dfs.core.windows.net"
+                                          },
+                       "connectVia":  {
+                                          "referenceName":  "AutoResolveIntegrationRuntime",
+                                          "type":  "IntegrationRuntimeReference"
+                                      }
+                   }
+}

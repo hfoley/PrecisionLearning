@@ -1,0 +1,26 @@
+{
+    "name":  "RawDataLakeDS",
+    "properties":  {
+                       "linkedServiceName":  {
+                                                 "referenceName":  "pltstlakeLS",
+                                                 "type":  "LinkedServiceReference"
+                                             },
+                       "annotations":  [
+
+                                       ],
+                       "type":  "Json",
+                       "typeProperties":  {
+                                              "location":  {
+                                                               "type":  "AzureBlobFSLocation",
+                                                               "fileSystem":  "raw"
+                                                           },
+                                              "compression":  {
+                                                                  "type":  "gzip"
+                                                              }
+                                          },
+                       "schema":  {
+
+                                  }
+                   },
+    "type":  "Microsoft.Synapse/workspaces/datasets"
+}
