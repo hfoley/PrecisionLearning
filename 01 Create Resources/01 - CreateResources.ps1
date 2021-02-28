@@ -97,7 +97,7 @@ $ADLSCheck2 = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $
 if(-not $ADLSCheck2)
     {
     Write-Host "The ADLS storage '$azstoragename2' doesn't exist and will be created"
-    New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $azstoragename2 -Location $resourceGroupLocation -SkuName $SKUName -Kind $storagekind  -EnableHierarchicalNamespace $true -Verbose
+    New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $azstoragename2 -Location $resourceGroupLocation -SkuName $SKUName -Kind $storagekind  -EnableHierarchicalNamespace $true 
      $ctx = New-AzStorageContext -StorageAccountName $azstoragename2 -UseConnectedAccount
         $ContCheck = Get-AzStorageContainer -Name $containername1 -Context $ctx -ErrorAction SilentlyContinue
         if(-not $ContCheck)
@@ -159,10 +159,6 @@ write-host "Ended Synapse firewall rule creation script at " $endTime
 New-AzSynapseFirewallRule -WorkspaceName $azsynapsename -AllowAllAzureIP
 
 $startTime = Get-Date
-
-Write-Host "The endpoint test was started " $startTime
-
-Invoke-AzRestMethod -Path "/subscriptions/$SubscriptionId/resourcegroups/$resourceGroupName/providers/microsoft.operationalinsights/workspaces/$azsynapsename/?api-version={API}" -Method PUT
 
 write-host "Total resources creation script finish at " $endTime
 
