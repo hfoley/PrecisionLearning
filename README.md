@@ -29,14 +29,6 @@ There is a script you can use to check and install items in 01 Create Resources 
 3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  
 	
 
-## Steps 
-Each folder contains PowerShell, json files to assist with pipelines/parameters, and/or SQL scripts you'll need to update for your environment.  Further details are in the readme of each section.  
-
-1. Start here to create Azure resources above >> [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources) 
-
-2. Start here to only want to create the Azure Data Factory components >> [02 ADF Create](https://github.com/hfoley/SynapseLoadV2/tree/master/02%20ADF%20Create).  
-
-3. Start here if you only need to create the metadata tables >> [03 SQL Scripts](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)
 
 
 
