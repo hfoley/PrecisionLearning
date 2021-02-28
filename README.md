@@ -19,8 +19,7 @@ The architecture of the solution diagrammed below.
 	
 * [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains PowerShell scripts to build all the Azure components in the solution and grant necessary permissions. Skip this if you want to use existing resources.  
 * [02 Sample Data](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
-* [03 Create Pipeline Parts](https://github.com/hfoley/SynapseLoadV2/tree/master/02%20ADF%20Create)   - contains powershell script and json files needed to build Azure Data Factory pipelines and other components.    
-* [04 Work With Parquet Data](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
+ * [03 Work With Parquet Data](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
 
 ## Pre-reqs
 There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
