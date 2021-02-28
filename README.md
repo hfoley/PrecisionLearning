@@ -23,10 +23,11 @@ The architecture of the solution diagrammed below.
 * [04 Work With Parquet Data](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
 
 ## Pre-reqs
+There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
 1. Need to have at least PowerShell 5.1 installed.  You can check this by running the following script. 
 	$PSVersionTable.PSVersion
 2. Install Powershell AZ package.  This solution has been tested with 4.3.0.  You can find info on installing this at https://www.powershellgallery.com/packages/Az/
-3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
+3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  
 	
 
 ## Steps 
