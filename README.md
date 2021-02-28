@@ -17,9 +17,9 @@ The architecture of the solution diagrammed below.
 	8. Synapse mapping data flow - will create a mapping dataflow we'll use to process and land data in parquet files in #4
 	9. *TBD Synapse pipeline - will do a pipeline to run after an issue is addressed in creating pipelines via PowerShell that contain a mapping dataflow
 	
-* [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains PowerShell scripts to build all the Azure components in the solution and grant necessary permissions. Skip this if you want to use existing resources.  
-* [02 Sample Data](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
- * [03 Work With Parquet Data](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
+* [01 Create Resources](https://github.com/hfoley/PrecisionLearning/tree/main/01%20Create%20Resources)   - contains PowerShell scripts to build all the Azure components in the solution and grant necessary permissions. Skip this if you want to use existing resources.  
+* [02 Sample Data](https://github.com/hfoley/PrecisionLearning/tree/main/02%20Sample%20Data)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
+ * [03 Work With Parquet Data](https://github.com/hfoley/PrecisionLearning/tree/main/03%20Work%20With%20Parquet%20Data)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
 
 ## Pre-reqs
 There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
