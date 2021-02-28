@@ -10,11 +10,13 @@ The files in this location are SQL Scripts we'll use within the Synapse Studio d
 	
 ## Steps
 These steps will all be done within the Synapse Studio environment.  
-1. Need to have at least PowerShell 5.1 installed.  You can check this by running the following script. 
-	$PSVersionTable.PSVersion
-2. Install Powershell AZ package.  This solution has been tested with 4.3.0.  You can find info on installing this at https://www.powershellgallery.com/packages/Az/
-3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  
-	
+1. Open the Synapse workspace within Azure.  You can then click the Open Synapse Studio or workspace url link.  Open the Develop pane (paper icon on left side).  
+2. Click the + sign in middle pane (hover says add new resource). 
+3. Click on import.  
+4. Navigate to the SQL Scripts file you've extracted them to locally.  Select the files and click open. 
+5. Select the script 01 - VitalSource External Table.  You'll need to update the external data source location (see highlight in image above).  Update it to your *lake data lake storage account. 
+6. Hit publish all to save changes to SQL Scripts. 
+7. Run the 01 - VitalSource External Table script.  You will need to make sure you have created the managed private endpoint at this time.  If not this script will error.  
 
 
 		
