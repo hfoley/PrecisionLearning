@@ -24,17 +24,3 @@ The files in this location are to help build the resources we'll use in your Azu
 	& "C:\PSScripts\02 - GrantStorageRights.ps1" -filepath "C:\PSScripts\paramfile.json"
 5. Run the 03 - Create Pipeline Parts.ps1.  You'll again be prompted for login to Azure.  This script will create the pipeline related components.  This will update the json files based on the values again in the paramfile.  Below is a sample syntax. 
 	& "C:\PSScripts\03 - Create Pipeline Parts.ps1" -filepath "C:\PSScripts\paramfile.json"![image](https://user-images.githubusercontent.com/30324719/109405342-a699df00-793d-11eb-8e4a-37e1ae3b718f.png)
-
-	
-
-
-
-
-
-
-
-		
-
-	
-	
-
