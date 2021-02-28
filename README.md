@@ -19,8 +19,7 @@ The architecture of the solution diagrammed below.
 	
 * [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains PowerShell scripts to build all the Azure components in the solution and grant necessary permissions. Skip this if you want to use existing resources.  
 * [02 Sample Data](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
-* [03 Create Pipeline Parts](https://github.com/hfoley/SynapseLoadV2/tree/master/02%20ADF%20Create)   - contains powershell script and json files needed to build Azure Data Factory pipelines and other components.    
-* [04 Work With Parquet Data](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
+ * [03 Work With Parquet Data](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)  - contains the SQL Server script files we'll use to create an external table and view that we'll use to pass data to Power BI.  I'll also include a Power BI template file to connect to Synapse on demand view.  
 
 ## Pre-reqs
 There is a script you can use to check and install items in 01 Create Resources folder called 00 - PreReqCheck.ps1.  
@@ -30,14 +29,6 @@ There is a script you can use to check and install items in 01 Create Resources 
 3. You may also need addtional modules if you have installed Az package some time ago.  Az.Synapse (https://www.powershellgallery.com/packages/Az.DataFactory) and Az.Synapse (https://www.powershellgallery.com/packages/Az.Synapse).  
 	
 
-## Steps 
-Each folder contains PowerShell, json files to assist with pipelines/parameters, and/or SQL scripts you'll need to update for your environment.  Further details are in the readme of each section.  
-
-1. Start here to create Azure resources above >> [01 Create Resources](https://github.com/hfoley/SynapseLoadV2/tree/master/01%20Create%20Resources) 
-
-2. Start here to only want to create the Azure Data Factory components >> [02 ADF Create](https://github.com/hfoley/SynapseLoadV2/tree/master/02%20ADF%20Create).  
-
-3. Start here if you only need to create the metadata tables >> [03 SQL Scripts](https://github.com/hfoley/SynapseLoadV2/tree/master/03%20SQL%20Scripts)
 
 
 
