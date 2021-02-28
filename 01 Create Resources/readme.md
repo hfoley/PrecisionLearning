@@ -16,7 +16,7 @@ The files in this location are to help build the resources we'll use in your Azu
 	
 
 ## Steps 
-1. Prereq check - Open your PoSH IDE and open the file 00 - PreReqCheck.ps1.  This file contains commands to check for and/or install some of the pre-reqs needed to run the rest of the scripts.  
+1. Prereq check - Open your PowerShell editor/IDE of choice and open the file 00 - PreReqCheck.ps1.  This file contains commands to check for and/or install some of the pre-reqs needed to run the rest of the scripts.  
 2. Update the paramfile.json with the values you want to use for the rest of the scripts.  Storage is finicky naming.  Keep storage params lowercase and your prefix 3-5 characters. 
 3. Run the 01 - CreateResources.ps1 file and supply the param file location.  You'll be prompted for your login credentials to Azure.  You'll also be prompted for a username and password.  This will be your Synapse admin login.  Below is some sample syntax.  Keep all your script and json files in the same location.  
 		a. & "C:\PSScripts\01 - CreateResources.ps1" -filepath "C:\PSScripts\paramfile.json"
