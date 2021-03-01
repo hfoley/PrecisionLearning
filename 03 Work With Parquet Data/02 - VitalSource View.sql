@@ -1,3 +1,15 @@
+/* Script below walks through some queries to clean up and narrow 
+down the data from the external table.  This will allow us 
+to filter and clean up what's sent to Power BI report. 
+**** Make sure to change the context of the database before you run 
+the script below.  USE statement doesn't seem to work in studio like SSMS/etc****
+
+The code below is meant to be stepped through for understanding.  
+Final 2 queries pertain to building and querying the final view. 
+
+*/ 
+
+
 use vitalsource;
 GO 
 select
@@ -9,11 +21,11 @@ select
 	[object],
 	[session],
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
   from VitalSourceEvents
 GO 
 
@@ -43,11 +55,11 @@ select top 10
 	[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
   from VitalSourceEvents
   --where 
 
@@ -72,11 +84,11 @@ WITH cte_pull_raw AS (
 	[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
   from VitalSourceEvents
 
 )
@@ -97,11 +109,11 @@ SELECT
 	--[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
 FROM 
     cte_pull_raw
 /*
@@ -116,7 +128,7 @@ GO
 CREATE VIEW EventsView
 AS 
   WITH cte_pull_raw AS (
-   select top 10 
+ select top 10 
 [@context] as "Version",
 	[action],
 	[actor],
@@ -132,33 +144,42 @@ AS
 	[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
   from VitalSourceEvents
-  )
+
+)
 
 SELECT
  [Version],
 	[action],
+	--[actor],
   JSON_VALUE(actor,'$.id') AS 'ActorID',
+	--[edApp],
   JSON_VALUE(edApp,'$.type') AS 'EdAppType',
 	[eventTime],
+	--[object],
   JSON_VALUE(object,'$.id') AS 'BookID',
   JSON_VALUE(object,'$.isPartOf.type') AS 'ObjectType',
   JSON_VALUE(object,'$.name') AS 'PageNum',
   JSON_VALUE(object,'$.type') AS 'PageType',
+	--[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
 FROM 
     cte_pull_raw
+/*
+    WHERE
+    year = 2018;
+*/ 
 
 
 select * from EventsView
@@ -168,7 +189,7 @@ select * from EventsView
 ALTER VIEW EventsView
 as 
 WITH cte_pull_raw AS (
-   select top 10 
+ select top 10 
 [@context] as "Version",
 	[action],
 	[actor],
@@ -184,32 +205,41 @@ WITH cte_pull_raw AS (
 	[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
   from VitalSourceEvents
-  )
+
+)
 
 SELECT
  [Version],
 	[action],
+	--[actor],
   JSON_VALUE(actor,'$.id') AS 'ActorID',
+	--[edApp],
   JSON_VALUE(edApp,'$.type') AS 'EdAppType',
 	[eventTime],
+	--[object],
   JSON_VALUE(object,'$.id') AS 'BookID',
   JSON_VALUE(object,'$.isPartOf.type') AS 'ObjectType',
   JSON_VALUE(object,'$.name') AS 'PageNum',
   JSON_VALUE(object,'$.type') AS 'PageType',
+	--[session],
   JSON_VALUE(session,'$.id') AS 'SessionID',
 	[type],
-	[uuid],
+	[id],
 	[dataVersion],
 	[sendTime],
 	[sensor],
-	[FileProcessed]
+	[VitalSrcFileProcessed]
 FROM 
     cte_pull_raw
 
-  */ 
+    WHERE
+    year = 2018;
+
+
+  /* 
