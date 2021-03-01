@@ -5,6 +5,7 @@ The files in this location are SQL Scripts we'll use within the Synapse Studio d
 ## File list 
 	1. 01 - VitalSource External Table.sql - SQL script to help build external table.  This was auto generated from navigating to the parquet files and right clicking. 
 	2. 02 - VitalSource View.sql - SQL script to narrow down the data and clean it up from json format.  This is the view the Power BI report will use as a data source.  
+	3. VitalSource Events PBI Report.pbit - Power BI template file that can be used to connect to your view in the vitalsource database within serverless SQL pool.  
 	
 ![alt text](https://github.com/hfoley/EDU/blob/master/images/SQLScript.jpg?raw=true)
 	
