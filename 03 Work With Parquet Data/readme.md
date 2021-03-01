@@ -18,11 +18,19 @@ These steps will all be done within the Synapse Studio environment.
 6. Hit publish all to save changes to SQL Scripts. 
 7. Run the 01 - VitalSource External Table script.  You will need to make sure you have created the managed private endpoint at this time.  If not this script will error.  
 
-## Connect Power BI to View
+## Connect Power BI to View in Desktop
 You can easily connect Power BI Desktop to your view within the database in a serverless SQL pool.  There's also a Power BI template you can use as well.  
 1. Open Azure portal and navigate to the resource page for your Synapse workspace.  In the overview pane you'll see "Serverless SQL endpoint".  This is the server you'll supply to Power BI.  Click to copy the contents of it by hovering just to the right.  
 2. Open Power BI and choose to Get Data.  Select "Azure Synapse Analytics" and click to connect. 
-3. Paste the contents of the serverless endpoint. 
+3. Paste the contents of the serverless endpoint into server. Specify "vitalsource" as the database.  Expand Advanced options and paste in our same query from before of "select * from EventsView" and click ok. 
+4. Select either Load or Transform Data if you'd like to begin further clean up of the data in Power BI report. 
+
+## Connect Power BI to View via Power BI template
+I created a Power BI template file you can use as well.  It contains a parameter to pass to specify your serverless SQL endpoint.  
+1. Open the local copy of VitalSource Events PBI Report.pbit file.  
+2. 
+
+
 
 
 		
