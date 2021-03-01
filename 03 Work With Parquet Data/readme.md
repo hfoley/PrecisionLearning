@@ -26,6 +26,8 @@ You can easily connect Power BI Desktop to your view within the database in a se
 3. Paste the contents of the serverless endpoint into server. Specify "vitalsource" as the database.  Expand Advanced options and paste in our same query from before of "select * from EventsView" and click ok. 
 4. Select either Load or Transform Data if you'd like to begin further clean up of the data in Power BI report. 
 
+![alt text](https://github.com/hfoley/EDU/blob/master/images/PBIConnect2.jpg?raw=true)
+
 ## Connect Power BI to View via Power BI template
 I created a Power BI template file you can use as well.  It contains a parameter to pass to specify your serverless SQL endpoint.  
 1. Open the local copy of VitalSource Events PBI Report.pbit file.  
