@@ -8,7 +8,7 @@ The files in this location are SQL Scripts we'll use within the Synapse Studio d
 	
 ![alt text](https://github.com/hfoley/EDU/blob/master/images/SQLScript.jpg?raw=true)
 	
-## Steps
+## Create External Table & View
 These steps will all be done within the Synapse Studio environment.  
 1. Open the Synapse workspace within Azure.  You can then click the Open Synapse Studio or workspace url link.  Open the Develop pane (paper icon on left side).  
 2. Click the + sign in middle pane (hover says add new resource). 
