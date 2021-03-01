@@ -31,7 +31,12 @@ You can easily connect Power BI Desktop to your view within the database in a se
 ## Connect Power BI to View via Power BI template
 I created a Power BI template file you can use as well.  It contains a parameter to pass to specify your serverless SQL endpoint.  
 1. Open the local copy of VitalSource Events PBI Report.pbit file.  
-2. 
+2. You will get a prompt for Serverless Server - paste in your serverless SQL endpoint server into the prompt. Click load. 
+3. You'll get prompted to run a native database query.  Click to Run. 
+4. You'll get a prompt for credentials.  You'll want to use Microsoft account option. Sign in then click to connect. 
+5. You can then do a file - save as - and save the Power BI Desktop file to location of choice.  
+
+You now have a Power BI connected to Synapse Analytics data lake powered serverless SQL pool.  If you use this, really appreciate feedback or tips to make it better.  Hit me up via Twitter - @hope_foley (https://twitter.com/hope_foley).  
 
 
 
