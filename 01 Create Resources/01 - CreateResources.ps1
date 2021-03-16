@@ -156,7 +156,7 @@ else
 $endTime = Get-Date
 write-host "Ended Synapse firewall rule creation script at " $endTime
 
-New-AzSynapseFirewallRule -WorkspaceName $azsynapsename -AllowAllAzureIP
+#New-AzSynapseFirewallRule -WorkspaceName $azsynapsename -AllowAllAzureIP
 
 $startTime = Get-Date
 
