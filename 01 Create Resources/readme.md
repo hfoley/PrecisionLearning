@@ -12,7 +12,7 @@ The files in this location are to help build the resources we'll use in your Azu
 	6. Synapse dataset to raw landing zong - will create dataset for the source location 
 	7. Synapse dataset to processed container - will create a dataset to land processed parquet files in to vitalsource container in #4
 	8. Synapse mapping data flow - will create a mapping dataflow we'll use to process and land data in parquet files in #4
-	9. *TBD Synapse pipeline - will do a pipeline to run after an issue is addressed in creating pipelines via PowerShell that contain a mapping dataflow
+	9. Synapse pipeline - will do a pipeline to run after an issue is addressed in creating pipelines via PowerShell that contain a mapping dataflow
 	
 
 ## Steps 
