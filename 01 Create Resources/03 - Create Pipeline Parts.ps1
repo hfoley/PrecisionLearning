@@ -50,7 +50,10 @@ $DataflowFile1 = $filestuff.DataflowFile1
 $DF1fullpath = $folderpath + $DataflowFile1 
 Write-Host $DF1fullpath
 
-
+$PipelineName1 = $filestuff.PipelineName1
+$PipelineFile1 = $filestuff.PipelineFile1
+$PL1fullpath = $folderpath + $PipelineFile1 
+Write-Host $PL1fullpath
 <#####################variables below do not need updated #> 
 
 Connect-AzAccount
@@ -79,6 +82,18 @@ $editdf.name = $filestuff.DataflowName1
 $editdf.properties.typeProperties.sources.dataset.referenceName = $filestuff.DatasetName1
 $editdf.properties.typeProperties.sinks.dataset.referenceName = $filestuff.DatasetName2
 $editdf | ConvertTo-Json -depth 100| set-content $DF1fullpath
+
+$editpl = (get-content $PL1fullpath -raw | ConvertFrom-Json)
+$editpl.name = $filestuff.PipelineName1
+$arraylevel = $editpl.properties.activities
+$arraylevel[0].name = $filestuff.DataflowName1
+$arraylevel2 = $editpl.properties.activities
+#$vPSObject2 = $arraylevel2[0].typeProperties.dataflow.referenceName
+$arraylevel2[0].typeProperties.dataflow.referenceName = $filestuff.DataflowName1
+#$updated = $arraylevel2[0].typeProperties.dataflow.referenceName
+#write-host "is before: "$vPSObject
+$editpl | ConvertTo-Json -depth 100| set-content $PL1fullpath
+
 
 #################
 
@@ -133,5 +148,13 @@ $endTime = Get-Date
 write-host "Ended '$DataflowName1' creation at " $endTime
 
 
+$Pipeline1Check = Get-AzSynapsePipeline -Name $PipelineName1 -WorkspaceName $azsynapsename -ErrorAction SilentlyContinue
+if(-not $Pipeline1Check)
+    {
+    Write-Host "Pipeline '$PipelineName1' doesn't exist and will be created"
+    Set-AzSynapsePipeline -WorkspaceName $azsynapsename -Name $PipelineName1 -DefinitionFile $PL1fullpath
+    }
+else 
+    {Write-Host "Pipeline '$PipelineName1' already created"}
 
 write-host "Pipeline comonents completed at " $endTime
