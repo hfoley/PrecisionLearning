@@ -37,15 +37,6 @@ The files in this location are to help build the resources we'll use in your Azu
 6. Back in Synapse Studio - you will see your endpoint approved but will take a few minutes (around 3-5 minutes in my experience). 
 7. Once you see approved in Synapse you can test the linked service connection.  Select Linked Services (still in manage pane).  In order to do so you'll need to enable a session with Azure IR.  This does start some compute resources (more info at XX).  After the IR is running you can hit Test connection on the 
 
-## Create pipeline & run 
-As of now (3/1/21) there's an issue creating a pipeline via PowerShell that contains a mapping data flow.  We'll create this manually for now and run the pipeline to process our raw files into parquet.  I will automate thise when that's resolved in updates to Az.Synapse PowerShell modules.  
-1. Open the Synapse workspace within Azure.  You can then click the Open Synapse Studio or workspace url link.  Open the manage pane (tool box on left side).  
-2. Navigate to Integrate pane.  Select the + and select pipeline.  Give it appropriate name. Tip: can click on properties in top right to move it out of the way.  
-3. Expand Activities and select and drag to canvas to run a Data flow (Move & Transform section). 
-4. Select settings for data flow - expand Data flow and choose VitalSourceDF. 
-5. After you've created and updated setting for the pipeline - hit publish to save your changes to Synapse. 
-6. We'll come back and run this pipeline after we've uploaded sample data in next section.  
-
 Up next is to upload sample data files into our newly created ADLS Gen 2 data lake.  You can view and validate what's contained in the resource group.  Navigate to sample data folder below.  
 
 * [02 Sample Data](https://github.com/hfoley/PrecisionLearning/tree/main/02%20Sample%20Data)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
