@@ -15,7 +15,7 @@ The architecture of the solution diagrammed below.
 	6. Synapse dataset to raw landing zong - will create dataset for the source location 
 	7. Synapse dataset to processed container - will create a dataset to land processed parquet files in to vitalsource container in #4
 	8. Synapse mapping data flow - will create a mapping dataflow we'll use to process and land data in parquet files in #4
-	9. *TBD Synapse pipeline - will do a pipeline to run after an issue is addressed in creating pipelines via PowerShell that contain a mapping dataflow
+	9. Synapse pipeline - will do a pipeline to run after an issue is addressed in creating pipelines via PowerShell that contain a mapping dataflow
 	
 * [01 Create Resources](https://github.com/hfoley/PrecisionLearning/tree/main/01%20Create%20Resources)   - contains PowerShell scripts to build all the Azure components in the solution and grant necessary permissions. Skip this if you want to use existing resources.  
 * [02 Sample Data](https://github.com/hfoley/PrecisionLearning/tree/main/02%20Sample%20Data)   - contains the raw VitalSource extract data I mimicked from documentation (link above)
