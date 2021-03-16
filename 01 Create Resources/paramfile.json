@@ -17,5 +17,7 @@
     "LinkedServiceName1" : "hlulakeLS",
     "DatasetName1" : "RawDataLakeDS",
     "DatasetName2" : "VitalSourceSinkDS",
-    "DataflowName1" : "VitalSourceDF"
+    "DataflowName1" : "VitalSourceDF",
+    "PipelineName1" : "VitalSourceDFPL",
+    "PipelineFile1" : "\\VitalSourceDFPL.json"
 }
