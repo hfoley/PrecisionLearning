@@ -25,7 +25,7 @@ Get-Module -Name Az.Sy* -ListAvailable
 # Can note the ID for paramfile 
 Connect-AzAccount
 Get-AzSubscription | Format-Table
-$sub = Get-AzSubscription Where-Object {$_.Name -like "Microsoft Azure Internal*"}
+$sub = Get-AzSubscription Where-Object {$_.Name -like "<your sub name>*"}
 
 $SubscriptionId = $sub.SubscriptionId
 Write-Host "Sub id for param file is " $SubscriptionId
