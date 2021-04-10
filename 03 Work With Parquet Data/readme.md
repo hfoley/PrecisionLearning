@@ -1,6 +1,6 @@
 # Precision Learning - 03 Work with Parquet Data
 
-The files in this location are SQL Scripts we'll use within the Synapse Studio develope area.  These scripts help build an external table and view pointing to the parquet files we processed in previous steps. ** Make sure to update the script prior to running. ** 
+The files in this location are SQL Scripts we'll use within the Synapse Studio develope area.  These scripts help build an external table and view pointing to the parquet files we processed in previous steps. Make sure to update the script prior to running. 
 
 ## File list 
 	1. 01 - VitalSource External Table.sql - SQL script to help build external table.  This was auto generated from navigating to the parquet files and right clicking. 
