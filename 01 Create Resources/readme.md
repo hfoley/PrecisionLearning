@@ -35,7 +35,7 @@ The files in this location are to help build the resources we'll use in your Azu
 4. In the Azure portal - navigate to your storage account.  Select Networking withing Settings of your storage account (left side).  Select on right side "Private endpoint connections".  
 5. You should see your pending endpoint.  Select it and click Approve.  You can add a description.  
 6. Back in Synapse Studio - you will see your endpoint approved but will take a few minutes (around 3-5 minutes in my experience). 
-7. Once you see approved in Synapse you can test the linked service connection.  Select Linked Services (still in manage pane).  In order to do so you'll need to enable a session with Azure IR.  This does start some compute resources (more info at XX).  After the IR is running you can hit Test connection on the 
+7. Once you see approved in Synapse you can test the linked service connection.  Select Linked Services (still in manage pane).  In order to do so you'll need to enable a session with Azure IR.  This does start some compute resources (more info at https://docs.microsoft.com/en-us/azure/synapse-analytics/data-integration/linked-service).  After the IR is running you can hit Test connection on the 
 
 Up next is to upload sample data files into our newly created ADLS Gen 2 data lake.  You can view and validate what's contained in the resource group.  Navigate to sample data folder below.  
 
