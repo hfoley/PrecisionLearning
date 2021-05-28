@@ -20,6 +20,9 @@ Get-Module -Name Az* -ListAvailable
 # I'm using latest available now (0.7.0)
 Get-Module -Name Az.Sy* -ListAvailable
 
+#If you need to install Az.Synapse or want to update 
+Install-Module -Name Az.Synapse -RequiredVersion 0.12.0
+
 
 # Connect to Azure and list subscriptions available 
 # Can note the ID for paramfile 
